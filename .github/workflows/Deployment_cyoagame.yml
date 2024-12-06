@@ -23,19 +23,19 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_18d9b200b4c642c7ac8198a21746e48a }}
+        username: ${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_EB7FE45702C144CA8B8EC06EBB809F23 }}
+        password: ${{ secrets.AZUREAPPSERVICE_CONTAINERPASSWORD_18D9B200B4C642C7AC8198A21746E48A }}
         
     - name: Build and push container
       run: |
-        docker build -t index.docker.io/${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}/cyoagame:${{ github.sha }} ./Backend
-        docker push index.docker.io/${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}/cyoagame:${{ github.sha }}
+        docker build -t index.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_EB7FE45702C144CA8B8EC06EBB809F23 }}/cyoagame:${{ github.sha }} ./Backend
+        docker push index.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_EB7FE45702C144CA8B8EC06EBB809F23 }}/cyoagame:${{ github.sha }}
     
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}/cyoagame:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_EB7FE45702C144CA8B8EC06EBB809F23 }}/cyoagame:${{ github.sha }}
         file: Backend/Dockerfile
         context: Backend/
 
@@ -53,5 +53,5 @@ jobs:
       with:
         app-name: 'cyoagame'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_8949b5c65e2548dc90dc4d1a5c592b20 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}/cyoagame:${{ github.sha }}'
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8949B5C65E2548DC90DC4D1A5C592B20 }}
+        images: 'index.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_EB7FE45702C144CA8B8EC06EBB809F23 }}/cyoagame:${{ github.sha }}'
