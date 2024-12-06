@@ -28,7 +28,7 @@ jobs:
         
     - name: Build simple img
       run: |
-        docker build -t index.docker.io/${{ secrets.AzureAppService_ContainerUsername }}/test-image:latest .
+        docker build -t index.docker.io/${{ secrets.AzureAppService_ContainerUsername }}/test-image:latest ./Backend
         docker push index.docker.io/${{ secrets.AzureAppService_ContainerUsername }}/test-image:latest
     
     - name: Build and push container image to registry
