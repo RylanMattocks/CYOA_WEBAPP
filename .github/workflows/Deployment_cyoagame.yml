@@ -25,15 +25,18 @@ jobs:
         registry: https://index.docker.io/
         username: ${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}
         password: ${{ secrets.AzureAppService_ContainerPassword_18d9b200b4c642c7ac8198a21746e48a }}
+        
+    - name: Debug info
+      run: docker info
 
-    - name: Verify Login with pull
-      run: docker pull index.docker.io/${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}/cyoagame:1.0
+    - name: debug images
+      run: docker images
     
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}/cyoagame:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}/cyoagame:latest
         file: Backend/Dockerfile
         context: Backend/
 
@@ -52,4 +55,4 @@ jobs:
         app-name: 'cyoagame'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_8949b5c65e2548dc90dc4d1a5c592b20 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}/cyoagame:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}/cyoagame:latest'
