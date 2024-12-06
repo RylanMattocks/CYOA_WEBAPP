@@ -46,12 +46,13 @@ export function updateActivity() {
     const keys = Object.keys(localStorage);
 
     keys.forEach((key) => {
-        const json = localStorage.getItem(`${PREFIX}${key}`);
-        if (json) {
-            console.log(json)
-            const item = JSON.parse(json);
-            item.lastActivity = now;
-            localStorage.setItem(key, JSON.stringify(item));
+        if (key.startsWith(PREFIX)) {
+            const json = localStorage.getItem(`${PREFIX}${key}`);
+            if (json) {
+                const item = JSON.parse(json);
+                item.lastActivity = now;
+                localStorage.setItem(key, JSON.stringify(item));
+            }
         }
     });
 }

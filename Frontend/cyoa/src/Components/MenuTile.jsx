@@ -1,7 +1,7 @@
-const MenuTile = ({ item }) => {
+const MenuTile = ({ item, onClick }) => {
     return (
         <div>
-            <button>{item}</button>
+            <button onClick={onClick}>{item}</button>
         </div>
     )
 }

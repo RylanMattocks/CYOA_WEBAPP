@@ -15,7 +15,7 @@ export const UserProvider = ({ children }) => {
     
     const logout = () => {
         setCurrentUser(null);
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem('cyoagame_currentUser');
         navigate('/');
     };
 
