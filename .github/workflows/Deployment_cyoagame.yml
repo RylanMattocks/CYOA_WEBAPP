@@ -26,11 +26,10 @@ jobs:
         username: ${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}
         password: ${{ secrets.AzureAppService_ContainerPassword_18d9b200b4c642c7ac8198a21746e48a }}
         
-    - name: Debug info
-      run: docker info
-
-    - name: debug images
-      run: docker images
+    - name: Build simple img
+      run: |
+        docker build -t index.docker.io/${{ secrets.AzureAppService_ContainerUsername }}/test-image:latest .
+        docker push index.docker.io/${{ secrets.AzureAppService_ContainerUsername }}/test-image:latest
     
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
