@@ -1,8 +1,19 @@
-const SaveTile = ({ save }) => {
-    console.log(save)
+import { useContext } from "react";
+import { deleteSave } from "../Functions/User";
+import { UserContext } from "../Context/UserContext";
+import '../Styles/SaveTile.css';
+
+const SaveTile = ({ save, handleClick}) => {
+    const { removeSave } = useContext(UserContext);
+
+    const handleDelete = () => {
+        deleteSave(save.saveName);
+        removeSave(save.saveName);
+    }
     return (
-        <div>
-            <h3>{save.saveName}</h3>
+        <div className="save-tile">
+            <h3 onClick={() => handleClick(save.saveLocation)}>{save.saveName}</h3>
+            <button onClick={() => handleDelete()}>Delete</button>
         </div>
     )
 }

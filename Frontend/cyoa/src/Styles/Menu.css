@@ -1,0 +1,50 @@
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-size: cover;
+    background-color: gray;
+    background-image: url('./Images/background_cyoa.jpg');
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+.menu-title h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.menu-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-option {
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.menu-option:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.HeaderPopup {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    margin: 0 auto;
+    color: white;
+}

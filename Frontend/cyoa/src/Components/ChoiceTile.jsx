@@ -1,7 +1,9 @@
-const ChoiceTile = ({ option, onClick }) => {
+import '../Styles/ChoiceTile.css';
+
+const ChoiceTile = ({ option, handleClick }) => {
     return(
-        <div>
-            <h3 onClick={() => onClick(option.next)}>{option.text}</h3>
+        <div className='choice-tile-container'>
+            <h3 onClick={() => handleClick(option.next)}>{option.text}</h3>
         </div>
     )
 }

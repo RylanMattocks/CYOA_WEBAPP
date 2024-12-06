@@ -1,7 +1,9 @@
+import '../Styles/MenuTile.css';
+
 const MenuTile = ({ item, onClick }) => {
     return (
         <div>
-            <button onClick={onClick}>{item}</button>
+            <button className="menu-tile-button" onClick={onClick}>{item}</button>
         </div>
     )
 }

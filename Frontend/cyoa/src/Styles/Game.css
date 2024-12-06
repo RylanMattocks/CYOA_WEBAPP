@@ -1,0 +1,33 @@
+.game-container {
+    font-family: 'Arial', sans-serif;
+    background-size: cover;
+    background-color: gray;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    width: 65vw;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+.choices-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+    margin-top: 4vw;
+    flex-wrap: wrap;
+}

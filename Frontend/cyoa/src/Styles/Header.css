@@ -1,0 +1,103 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 2vw;
+    background-color: #333;
+    height: 3vw;
+    justify-content: center;
+}
+
+.header-game-name {
+    flex-grow: 1;
+    text-align: center;
+    color: white;
+}
+
+.header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header-hamburger {
+    position: absolute;
+    right: 2vw;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    width: 4vw;
+    height: 3vw;
+    justify-content: space-between;
+    
+}
+
+.header-hamburger span {
+    background-color: white;
+    height: .5vw;
+    width: 100%;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.header-menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    display: none;
+    flex-direction: column;
+    z-index: 10;
+    min-width: 50vw;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 80vw;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.header-menu li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    height: 10vw;
+    color: #333;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
+    color: white;
+    font-size: 1.5vw;
+}
+
+.header-menu li:last-child {
+    border-bottom: none;
+}
+
+.header-menu.open {
+    display: flex;
+}
+
+.header-menu li:hover {
+    background-color: rgba(255, 165, 0, 0.8);
+}

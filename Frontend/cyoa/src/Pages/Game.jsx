@@ -1,32 +1,37 @@
 import { useContext, useEffect, useState } from "react"
-import { UserContext } from "../Context/UserContext"
 import { getNode } from "../Functions/Game";
 import ChoiceTile from "../Components/ChoiceTile";
+import Header from "../Components/Header";
+import { GameContext } from "../Context/GameContext";
+import '../Styles/Game.css';
 
-const Game = ({ startLocation }) => {
-    const [ location, setLocation ] = useState(null);
-    const initialLocation = startLocation || 'start';
+const Game = () => {
+    const [ locationInfo, setLocationInfo ] = useState(null);
+    const { currentLocation, updateLocation } = useContext(GameContext);
 
     useEffect(() => {
         const fetchNode = async () => {
-            setLocation(await getNode(initialLocation));
+            setLocationInfo(await getNode(currentLocation));
         };
         fetchNode();
-    }, [initialLocation])
+    }, [currentLocation])
 
-    const handleClick = async (location) => {
-        setLocation(await getNode(location));
+    const handleClick = async (newLocation) => {
+        updateLocation(newLocation);
     }
 
     return (
         <div>
-            <div>
-                <h3>{location?.text}</h3>
-                {location?.options.map((option, index) => (
-                    <div key={index}>
-                        <ChoiceTile option={option} onClick={() => handleClick(option.next)}/>
-                    </div>
-                ))}
+            <Header />
+            <div className="game-container">
+                <h3>{locationInfo?.text}</h3>
+                <div className="choices-container">
+                    {locationInfo?.options?.map((option, index) => (
+                        <div key={index} className="choice-tile-container">
+                            <ChoiceTile option={option} handleClick={handleClick}/>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

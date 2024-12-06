@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import { UserContext } from "../Context/UserContext"
 import { NavLink, useNavigate } from "react-router-dom";
 import { userLogin } from "../Functions/User";
+import '../Styles/Login.css';
 
 const Login = () => {
     const { login } = useContext(UserContext);
@@ -26,27 +27,25 @@ const Login = () => {
     };
 
     return (
-        <div>
-            <div>
-                <h2>Welcome To CYOA Game!</h2>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="username">Username</label>
-                        <input
-                            id="username"
-                            type="text"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            placeholder="Enter Username"
-                            required
-                        />
-                    </div>
-                    {error && <div>{error}</div>}
-                    <button type="submit">Login</button>
-                </form>
-                <div>
-                    Don't have an account? <NavLink to="/register">Register</NavLink>
+        <div className="login-container">
+            <h2 className="login-heading">Welcome To CYOA Game!</h2>
+            <form onSubmit={handleSubmit} className="login-form">
+                <div className="form-group">
+                    <label htmlFor="username" className="form-label">Username</label>
+                    <input
+                        id="username"
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Enter Username"
+                        required
+                    />
                 </div>
+                {error && <div className="error-message">{error}</div>}
+                <button type="submit">Login</button>
+            </form>
+            <div className="login-footer">
+                Don't have an account? <NavLink to="/register">Register</NavLink>
             </div>
         </div>
     )

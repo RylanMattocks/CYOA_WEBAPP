@@ -25,3 +25,32 @@ export const userRegister = async( username ) => {
         return null;
     }
 }
+
+export const saveGame = async ( saveName, saveLocation, username) => {
+    try {
+        const response = await fetch(`${url}save`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ saveName, saveLocation, username })
+        });
+        if (!response.ok) throw new Error();
+        return "created";
+    } catch {
+        console.log("error");
+        return null;
+    }
+}
+
+export const deleteSave = async (saveName) => {
+    try {
+        const response = await fetch(`${url}${saveName}?type=save`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' }
+        });
+        if (!response.ok) throw new Error();
+        return "deleted"; 
+    } catch {
+        console.log('error');
+        return null;
+    }
+}

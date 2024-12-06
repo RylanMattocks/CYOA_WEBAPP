@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { getStorageItem, isExpired, setStorageItem } from "../Storage/LocalStorage";
+import { getStorageItem, setStorageItem } from "../Storage/LocalStorage";
 import { useNavigate } from "react-router-dom";
 
 export const UserContext = createContext();
@@ -19,15 +19,13 @@ export const UserProvider = ({ children }) => {
         navigate('/');
     };
 
-    // const checkToken = () => {
-    //     const path = window.location.pathname;
-    //     if (!getStorageItem('currentUser') || isExpired('currentUser')) {
-    //         if (path !== '/login' && path !== '/register') logout();
-    //     }
-    // };
+    const removeSave = (saveName) => {
+        const updatedSaves = currentUser.saves.filter(save => save.saveName !== saveName);
+        setCurrentUser(prevUser => ({...prevUser, saves: updatedSaves}));
+    }
 
     return (
-        <UserContext.Provider value={{ currentUser, setCurrentUser, login, logout }}>
+        <UserContext.Provider value={{ currentUser, setCurrentUser, login, logout, removeSave }}>
             { children }
         </UserContext.Provider>
     )
