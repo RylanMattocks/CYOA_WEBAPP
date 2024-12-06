@@ -26,10 +26,10 @@ jobs:
         username: ${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}
         password: ${{ secrets.AzureAppService_ContainerPassword_18d9b200b4c642c7ac8198a21746e48a }}
         
-    - name: Build simple img
+    - name: Build and push container
       run: |
-        docker build -t index.docker.io/${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}/test-image:latest ./Backend
-        docker push index.docker.io/${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}/test-image:latest
+        docker build -t index.docker.io/${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}/cyoagame:${{ github.sha }} ./Backend
+        docker push index.docker.io/${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}/cyoagame:${{ github.sha }}
     
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
