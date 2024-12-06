@@ -11,10 +11,10 @@ COPY Game.Models/ /app/Game.Models
 COPY Game.Utils/ /app/Game.Utils
 
 # Restore dependencies for the API project
-RUN dotnet restore Game.API/Game.csproj
+RUN dotnet restore Game.API/Game.API.csproj
 
 # Run and publish .NET artifact
-RUN dotnet publish Game.API/Game.csproj -c Release -o dist 
+RUN dotnet publish Game.API/Game.API.csproj -c Release -o dist 
 
 # Make new layer 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS run 
@@ -31,4 +31,4 @@ COPY --from=build /app/dist .
 EXPOSE 80
 
 # What to do when docker run is called
-CMD ["dotnet", "Game.dll"]
+CMD ["dotnet", "Game.API.dll"]
