@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_eb7fe45702c144ca8b8ec06ebb809f23 }}/rylanmattocks/cyoagame:${{ github.sha }}
-        file: ./Dockerfile
+        file: ../../Backend/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
