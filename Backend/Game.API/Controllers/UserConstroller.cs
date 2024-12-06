@@ -16,7 +16,7 @@ public class UserController : ControllerBase {
     [HttpGet("{username}")]
     public async Task<IActionResult> GetUserByUsername(string username) {
         try {
-            return Ok(_service.GetUserByUsername(username));
+            return Ok(await _service.GetUserByUsername(username));
         }
         catch {
             return BadRequest("User not found");
