@@ -10,6 +10,8 @@ COPY Game.Data/ /app/Game.Data
 COPY Game.Models/ /app/Game.Models 
 COPY Game.Utils/ /app/Game.Utils
 
+COPY Game.Api/Text /app/Game.API/Text
+
 # Restore dependencies for the API project
 RUN dotnet restore Game.API/Game.API.csproj
 
@@ -26,6 +28,8 @@ WORKDIR /app
 
 # Copy over artifacts from build layer
 COPY --from=build /app/dist .
+
+COPY --from=build /app/Game.API/Text ./Text
 
 # Expose port 80
 EXPOSE 80

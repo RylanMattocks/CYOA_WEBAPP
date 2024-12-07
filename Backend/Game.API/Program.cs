@@ -21,7 +21,7 @@ builder.Services.AddCors(options => {
     });
 });
 
-string dialogueFilePath = Path.Combine(builder.Environment.ContentRootPath, "Text", "dialogue.json");
+string dialogueFilePath = Path.Combine(AppContext.BaseDirectory, "Text", "dialogue.json");
 builder.Services.AddSingleton(dialogueFilePath);
 
 builder.Services.AddScoped<IUserRepo, UserRepo>();
