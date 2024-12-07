@@ -63,4 +63,4 @@ jobs:
         app-name: 'cyoagame'
         slot-name: 'production'
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8949B5C65E2548DC90DC4D1A5C592B20 }}
-        images: 'index.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_EB7FE45702C144CA8B8EC06EBB809F23 }}/cyoagame:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_EB7FE45702C144CA8B8EC06EBB809F23 }}/cyoagame:${{ steps.meta.outputs.tags }}'
