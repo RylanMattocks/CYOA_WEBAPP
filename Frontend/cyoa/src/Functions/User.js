@@ -1,4 +1,4 @@
-const url = 'http://localhost:5140/api/User/';
+const url = 'https://cyoagame.azurewebsites.net/api/User/';
 
 export const userLogin = async( username ) => {
     try {

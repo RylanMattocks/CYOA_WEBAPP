@@ -1,4 +1,4 @@
-const url = 'http://localhost:5140/api/Game/';
+const url = 'https://cyoagame.azurewebsites.net/api/Game/';
 
 export const getNode = async( location ) => {
     try {
