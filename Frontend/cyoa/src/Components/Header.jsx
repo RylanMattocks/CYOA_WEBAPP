@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../Context/UserContext";
 import Popup from "./Popup";
 import { useNavigate } from "react-router-dom";
-import { saveGame } from "../Functions/User";
+import { saveGame, updateUser } from "../Functions/User";
 import { GameContext } from "../Context/GameContext";
 import '../Styles/Header.css';
 
@@ -55,6 +55,7 @@ const Header = () => {
         }
         else if (type === 'save') {
             saveGame(data, currentLocation, currentUser.username);
+            updateUser(currentUser.username, currentUser.diceRoll, currentUser.bagCheck, currentUser.looping);
             const newSave = {saveName: data, saveLocation: currentLocation}
             const updatedSaves = [...currentUser.saves, newSave];
             setCurrentUser(prevUser => ({...prevUser, saves: updatedSaves}));

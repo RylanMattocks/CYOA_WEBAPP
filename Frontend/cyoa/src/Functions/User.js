@@ -54,3 +54,18 @@ export const deleteSave = async (saveName) => {
         return null;
     }
 }
+
+export const updateUser = async ( username, diceRoll, bagCheck, looping ) => {
+    try {
+        const response = await fetch(`${url}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, diceRoll, bagCheck, looping })
+        });
+        if (!response.ok) throw new Error();
+        return "updated";
+    } catch {
+        console.log('error');
+        return null;
+    }
+}
