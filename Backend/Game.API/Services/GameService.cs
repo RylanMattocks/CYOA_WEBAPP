@@ -7,6 +7,7 @@ public class GameService : IGameService {
 
     public GameService(string dialogueFilePath) {
         _dialogueGraph = DialogueGraph.LoadDialogueGraph(dialogueFilePath).Result;
+        Console.WriteLine(_dialogueGraph);
     }
     public DialogueNode GetDialogueNode(string nodeId) {
         DialogueNode? currentNode = _dialogueGraph.GetNode(nodeId);

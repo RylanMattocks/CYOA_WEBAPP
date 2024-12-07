@@ -46,6 +46,7 @@ public class DialogueGraph {
         using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
         {
             var nodes = await JsonSerializer.DeserializeAsync<Dictionary<string, DialogueNode>>(fs);
+            Console.WriteLine(nodes);
             foreach (var node in nodes)
             {
                 dialogueGraph.AddNode(node.Key, node.Value);

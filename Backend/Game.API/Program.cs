@@ -24,8 +24,6 @@ builder.Services.AddCors(options => {
 string dialogueFilePath = Path.Combine(AppContext.BaseDirectory, "Text", "dialogue.json");
 builder.Services.AddSingleton(dialogueFilePath);
 
-Console.WriteLine($"Base directory: {AppContext.BaseDirectory}");
-
 builder.Services.AddScoped<IUserRepo, UserRepo>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IGameService, GameService>();
