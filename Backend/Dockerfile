@@ -10,7 +10,7 @@ COPY Game.Data/ /app/Game.Data
 COPY Game.Models/ /app/Game.Models 
 COPY Game.Utils/ /app/Game.Utils
 
-COPY Game.Api/Text /app/Game.API/Text
+COPY Game.API/Text /app/Game.API/Text
 
 # Restore dependencies for the API project
 RUN dotnet restore Game.API/Game.API.csproj
