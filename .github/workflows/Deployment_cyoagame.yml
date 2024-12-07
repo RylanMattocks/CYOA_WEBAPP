@@ -36,7 +36,7 @@ jobs:
 
     - name: Push Image
       run: |
-        docker push https://index.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_EB7FE45702C144CA8B8EC06EBB809F23 }}/cyoagame:${{ github.sha }}
+        docker push ${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_EB7FE45702C144CA8B8EC06EBB809F23 }}/cyoagame:${{ github.sha }}
         
     - name: Build and push container
       run: |
