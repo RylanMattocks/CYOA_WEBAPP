@@ -29,8 +29,8 @@ public class UserController : ControllerBase {
             await _service.AddUser(addUserDTO);
             return Created();
         }
-        catch {
-            return BadRequest("Could not add user");
+        catch (Exception e) {
+            return BadRequest(e.Message);
         }
     }
 
