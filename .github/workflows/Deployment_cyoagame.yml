@@ -9,6 +9,7 @@ on:
       - Deployment
     paths:
       - Backend/**
+      - .github/workflows/Deployment_cyoagame.yml
       - '!Frontend/**'
   workflow_dispatch:
 
