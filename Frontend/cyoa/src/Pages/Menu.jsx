@@ -37,7 +37,7 @@ const Menu = () => {
     return (
         <div className="menu-container">
             <div className="menu-title">
-                <h1>Name of Game Here</h1>
+                <h1>Surviving the Silent City</h1>
             </div>
             <div className="menu-options">
                 {MenuOptions.map((item, index) => (
