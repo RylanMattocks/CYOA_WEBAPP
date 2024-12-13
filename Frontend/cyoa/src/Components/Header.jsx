@@ -78,7 +78,7 @@ const Header = () => {
 
             <div className="header">
                 <div className="header-game-name">
-                    <h1>Name of Game</h1>
+                    <h1>Surviving the Silent City</h1>
                 </div>
                 <div className="header-hamburger" onClick={toggleMenu}>
                     <span></span>

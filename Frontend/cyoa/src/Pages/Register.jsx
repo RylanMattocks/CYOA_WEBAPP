@@ -39,7 +39,7 @@ const Register = () => {
 
     return (
         <div className="register-container">
-            <h2 className="register-heading">Register for CYOA Game</h2>
+            <h2 className="register-heading">Register for Surviving the Silent City</h2>
             <form onSubmit={handleSubmit} className="register-form">
                 <div className="form-group">
                     <label htmlFor="username" className="form-label">Username</label>

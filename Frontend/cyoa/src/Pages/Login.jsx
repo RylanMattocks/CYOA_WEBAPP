@@ -28,7 +28,7 @@ const Login = () => {
 
     return (
         <div className="login-container">
-            <h2 className="login-heading">Welcome To CYOA Game!</h2>
+            <h2 className="login-heading">Welcome To Surviving the Silent City!</h2>
             <form onSubmit={handleSubmit} className="login-form">
                 <div className="form-group">
                     <label htmlFor="username" className="form-label">Username</label>
